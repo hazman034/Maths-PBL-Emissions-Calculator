@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Sustainable Energy</title>
@@ -37,11 +37,34 @@
 			background-image: url("solar roof.jpg");
 			background-position: center;
 			background-repeat: no-repeat;
-			background-size: 1440px 650px;
+			background-size: 100%;
 
 			text-align: center;
 			color: white;
 			font-family: Arial Black,Arial Bold,Gadget,sans-serif; 
+			font-size: 30px;
+		}
+		.header2 {
+			background-image: url("windfarm.jpg");
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: 100%;
+
+			text-align: center;
+			color: white;
+			font-family: Arial Black,Arial Bold,Gadget,sans-serif; 
+			font-size: 20px
+		}
+		.header3 {
+			background-image: url("solarfarm.jpg");
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: 100% 200%;
+
+			text-align: center;
+			color: white;
+			font-family: Arial Black,Arial Bold,Gadget,sans-serif; 
+			font-size: 20px
 		}
 		.side {
 			border-right: none;
@@ -69,12 +92,19 @@
 	<div class="navbar">
 		<ul>
 			<li><a class="active" href="">Energy Calculator</a></li>
-			<li><a class="side" style="float:right" href="">Info</a></li>
+			<li><a class="side" style="float:right;" href="">Info</a></li>
 		</ul>
 	</div>
 
-	<div class="header">
-		<br><br><br><br><br><br><br><br><h1>ENERGY USE CALCULATOR</h1><br><br><br><br><br><br><br><br>
+	<div class="header"><br><br><br><br><br><br><h1>ENERGY USE CALCULATOR</h1><br><br><br><br><br><br>
+	</div>
+
+	<div class="header2">
+		<br><br><br><br><br><br><br><br><h1>How much energy do you use?</h1><br><br><br><br><br><br><br><br>
+	</div>
+
+	<div class="header3">
+		<br><br><br><br><br><br><br><br><h1>Find out below</h1><br><br><br><br><br><br><br><br>
 	</div>
 
 	<table style="width: 100%">
@@ -107,7 +137,7 @@
 
 	<button id="submitter">Calculate</button>
 	<br>
-	<div id="output"></div>
+	<div id="output"><p>thing</p></div>
 	<a href="https://www.canstarblue.com.au/energy/electricity/real-cost-lighting-home/">source1</a>
 	<script type="text/javascript">
 		
@@ -115,6 +145,8 @@
 		var topNum;
 		var bottomNum;
 		var inputCheck;
+		var red;
+		var totalWatts;
 		document.getElementById("submitter").addEventListener("click", function() {
 			clicked = true;
 		})
@@ -131,24 +163,26 @@
 				var y = document.getElementById("wattInput2").value;
 				var z = document.getElementById("wattInput3").value;
 
-				var watts = numberCheck(40, 8, w) * a;
-				var watts1 = numberCheck(100, 25, x) *b;
-				var watts2 = numberCheck(70, 20, y) * c;
-				var watts3 = numberCheck(25, 4, z) * d;
+				var watts = numberCheck(40, 8, w, wattInput) * a;
+				var watts1 = numberCheck(100, 25, x, wattInput1) *b;
+				var watts2 = numberCheck(70, 20, y, wattInput2) * c;
+				var watts3 = numberCheck(25, 4, z, wattInput3) * d;
 
-				var totalWatts = watts + watts1 + watts2 + watts3;
+				totalWatts = watts + watts1 + watts2 + watts3;
 
-				console.log(totalWatts);
+				var output = document.getElementById("output");
+				output.innerHTML = totalWatts;
 			}
 		}, 100)
 
 		//Function to check that number is within range
-		function numberCheck(topNum, bottomNum, inputCheck) {
+		function numberCheck(topNum, bottomNum, inputCheck, red) {
 			if (inputCheck == 0) {
-				console.log("kys");
+				//set text field to red and output error message
+				return null;
 			}
 			else if (inputCheck >= topNum || inputCheck <= bottomNum) {
-				console.log("ITS WRONG");
+				//set text field to red and output error message
 			}
 			else {
 				return Number(inputCheck);
