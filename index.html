@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Sustainable Energy</title>
+	<style>
+		body {
+			font-family: "Comic Sans MS", cursive, sans-serif;		
+		}
+		ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			background-color: #333;
+		}
+
+		li {
+			float: left;
+		}
+
+		li a {
+			display: block;
+			color: white;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+		}
+
+		li a:hover {
+			background-color: #878787;
+		}
+		
+		.active {
+			background-color: #1EFF00;
+		}
+		.header {
+			background-image: url("solar roof.jpg");
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: 1440px 650px;
+
+			text-align: center;
+			color: white;
+			font-family: Arial Black,Arial Bold,Gadget,sans-serif; 
+		}
+		.side {
+			border-right: none;
+		}
+		.navbar {
+			position: fixed;
+			top: 0;
+			width: 100%;
+		}
+		.result {
+			display: inline-block;
+			width: 200px;
+		}
+		.input {
+			width: 90%
+		}
+		table, th, td {
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+	</style>
+</head>
+	<body>
+
+	<div class="navbar">
+		<ul>
+			<li><a class="active" href="">Energy Calculator</a></li>
+			<li><a class="side" style="float:right" href="">Info</a></li>
+		</ul>
+	</div>
+
+	<div class="header">
+		<br><br><br><br><br><br><br><br><h1>ENERGY USE CALCULATOR</h1><br><br><br><br><br><br><br><br>
+	</div>
+
+	<table style="width: 100%">
+		<tr>
+			<th style="width: 5%">Number</th>
+			<th>Device</th>
+			<th>Usage (watts/hour)</th>
+		</tr>
+		<tr>
+			<td><input type="number" class="input" id="userInput"></input></td>
+			<td>CFL Light Bulb</td>
+			<td><input type="number" class="input" id="wattInput" style="width: 10%"></input>(8-40 watts)</td>
+		</tr>
+		<tr>
+			<td><input type="number" class="input" id="userInput1"></input></td>
+			<td>Incandescent Light Bulb</td>
+			<td><input type="number" class="input" id="wattInput1" style="width: 10%"></input>(25-100 watts)</td>
+		</tr>
+		<tr>
+			<td><input type="number" class="input" id="userInput2"></input></td>
+			<td>Halogen Light Bulb</td>
+			<td><input type="number" class="input" id="wattInput2" style="width: 10%"></input>(20-70 watts)</td>
+		</tr>
+		<tr>
+			<td><input type="number" class="input" id="userInput3"></input></td>
+			<td>LED Light Bulb</td>
+			<td><input type="number" class="input" id="wattInput3" style="width: 10%"></input>(4-25 watts)</td>
+		</tr>
+	</table>
+
+	<button id="submitter">Calculate</button>
+	<br>
+	<div id="output"></div>
+	<a href="https://www.canstarblue.com.au/energy/electricity/real-cost-lighting-home/">source1</a>
+	<script type="text/javascript">
+		
+		var clicked = false;
+		var topNum;
+		var bottomNum;
+		var inputCheck;
+		document.getElementById("submitter").addEventListener("click", function() {
+			clicked = true;
+		})
+		setInterval(function() {
+			if (clicked) {
+				clicked = false;
+				var a = document.getElementById("userInput").value;
+				var b = document.getElementById("userInput1").value;
+				var c = document.getElementById("userInput2").value;
+				var d = document.getElementById("userInput3").value;
+
+				var w = document.getElementById("wattInput").value;
+				var x = document.getElementById("wattInput1").value;
+				var y = document.getElementById("wattInput2").value;
+				var z = document.getElementById("wattInput3").value;
+
+				var watts = numberCheck(40, 8, w) * a;
+				var watts1 = numberCheck(100, 25, x) *b;
+				var watts2 = numberCheck(70, 20, y) * c;
+				var watts3 = numberCheck(25, 4, z) * d;
+
+				var totalWatts = watts + watts1 + watts2 + watts3;
+
+				console.log(totalWatts);
+			}
+		}, 100)
+
+		//Function to check that number is within range
+		function numberCheck(topNum, bottomNum, inputCheck) {
+			if (inputCheck == 0) {
+				console.log("kys");
+			}
+			else if (inputCheck >= topNum || inputCheck <= bottomNum) {
+				console.log("ITS WRONG");
+			}
+			else {
+				return Number(inputCheck);
+			}
+		}
+	</script>
+
+	</body>
+</html>
