@@ -13,11 +13,9 @@
 			overflow: hidden;
 			background-color: #333;
 		}
-
 		li {
 			float: left;
 		}
-
 		li a {
 			display: block;
 			color: white;
@@ -25,11 +23,9 @@
 			padding: 14px 16px;
 			text-decoration: none;
 		}
-
 		li a:hover {
 			background-color: #878787;
-		}
-		
+		}		
 		.active {
 			background-color: #1EFF00;
 		}
@@ -38,7 +34,6 @@
 			background-position: center;
 			background-repeat: no-repeat;
 			background-size: 100%;
-
 			text-align: center;
 			color: white;
 			font-family: Arial Black,Arial Bold,Gadget,sans-serif; 
@@ -49,7 +44,6 @@
 			background-position: center;
 			background-repeat: no-repeat;
 			background-size: 100%;
-
 			text-align: center;
 			color: white;
 			font-family: Arial Black,Arial Bold,Gadget,sans-serif; 
@@ -60,7 +54,6 @@
 			background-position: center;
 			background-repeat: no-repeat;
 			background-size: 100% 200%;
-
 			text-align: center;
 			color: white;
 			font-family: Arial Black,Arial Bold,Gadget,sans-serif; 
@@ -83,7 +76,12 @@
 		}
 		#output {
 			border-left: 6px solid #1EFF00;
-    		background-color: #e0e0e0;
+			background-color: #333;
+			color: white;
+		}
+		.calculatorClass {
+			background-color: #333;
+			color: white;
 		}
 		table, th, td {
 			border: 1px solid black;
@@ -93,12 +91,14 @@
 </head>
 	<body>
 
+	<navbar>
 	<div class="navbar">
 		<ul>
 			<li><a class="active" href="">Energy Calculator</a></li>
 			<li><a class="side" style="float:right;" href="">Info</a></li>
 		</ul>
 	</div>
+	</navbar>
 
 	<div class="header"><br><br><br><br><br><br><h1>ENERGY USE CALCULATOR</h1><br><br><br><br><br><br>
 	</div>
@@ -114,7 +114,7 @@
 	<h2>Energy Use Calculator</h2>
 
 	<table style="width: 100%">
-		<tr>
+		<tr class="calculatorClass">
 			<th style="width: 5%">Number</th>
 			<th>Device</th>
 			<th>Usage (watts/hour)</th>
@@ -210,7 +210,7 @@
 	<button id="submitter">Calculate</button>
 	<br>
 	<br>
-	<div id="output">Output is here</div>
+	<div style="font-size: 36px;" id="output">Output is here</div>
 	<br>
 	<a href="https://www.canstarblue.com.au/energy/electricity/real-cost-lighting-home/">source1</a>
 	<a href="https://www.saveonenergy.com/energy-consumption/">source2</a>
