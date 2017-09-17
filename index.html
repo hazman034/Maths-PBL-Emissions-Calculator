@@ -96,7 +96,8 @@
 	<div class="navbar">
 		<ul>
 			<li><a class="active" href="#home"><span class="glyphicon glyphicon-home"></span></a></li>
-			<li><a class="side" style="float:right;" href="#calc">Calculator</a></li>
+			<li><a class="side" href="#calc">Calculator</a></li>
+			<li style="float: right;"><a class="side" href="about/index.html">About</a></li>
 		</ul>
 	</div>
 
@@ -111,9 +112,9 @@
 		<br><br><br><br><br><br><br><br><h1>Find out below</h1><br><br><br><br><br><br><br><br>
 	</div>
 
-	<h2>Energy Use Calculator</h2>
+	<h2 id="calc">Energy Use Calculator</h2>
 
-	<table style="width: 100%" id="calc">
+	<table style="width: 100%">
 		<tr class="calculatorClass">
 			<th style="width: 5%">Number</th>
 			<th>Device</th>
@@ -205,8 +206,7 @@
 			<td>5000 watts</td>
 		</tr>
 	</table>
-	<!-- To do: add cost function -->
-	<p>Electricity cost per kWh</p><input type="number" class="input" id="costInput"></input><br>
+	Electricity cost per kWh: <input type="number" style="width: 20%" class="input" id="costInput"></input><br>
 	<button id="submitter">Calculate</button>
 	<br>
 	<br>
@@ -281,7 +281,7 @@
 					outputField = totalWatts + " watts per hour";
 				}
 				else {
-					outputField = "Please input data";
+					outputField = "Please input valid data";
 				}
 				console.log(totalWatts);
 				output.innerHTML = outputField;
