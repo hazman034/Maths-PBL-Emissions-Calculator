@@ -4,7 +4,7 @@
 	<title>Sustainable Energy</title>
 	<style>
 		body {
-			font-family: "Comic Sans MS", cursive, sans-serif;		
+			font-family: "Comic Sans MS", cursive, sans-serisf;		
 		}
 		ul {
 			list-style-type: none;
@@ -133,12 +133,65 @@
 			<td>LED Light Bulb</td>
 			<td><input type="number" class="input" id="wattInput3" style="width: 10%"></input>(4-25 watts)</td>
 		</tr>
+		<tr>
+			<td><input type="number" class="input" id="userInput4"></input></td>
+			<td>Fridge</td>
+		</tr>
+		<tr>
+			<td><input type="number" class="input" id="userInput5"></input></td>
+			<td>Television 19"-36"</td>
+		</tr>
+		<tr>
+			<td><input type="number" class="input" id="userInput6"></input></td>
+			<td>Television 53"-61"</td>
+		</tr>
+		<tr>
+			<td><input type="number" class="input" id="userInput7"></input></td>
+			<td>Microwave</td>
+		</tr>
+		<tr>
+			<td><input type="number" class="input" id="userInput8"></input></td>
+			<td>Game Console</td>
+		</tr>
+		<tr>
+			<td><input type="number" class="input" id="userInput9"></input></td>
+			<td>Dishwasher</td>
+		</tr>
+		<tr>
+			<td><input type="number" class="input" id="userInput10"></input></td>
+			<td>Clothes Washer</td>
+		</tr>
+		<tr>
+			<td><input type="number" class="input" id="userInput11"></input></td>
+			<td>Clothes Dryer</td>
+		</tr>
+		<tr>
+			<td><input type="number" class="input" id="userInput12"></input></td>
+			<td>Air Conditioner</td>
+		</tr>
+		<tr>
+			<td><input type="number" class="input" id="userInput13"></input></td>
+			<td>Toaster</td>
+		</tr>
+		<tr>
+			<td><input type="number" class="input" id="userInput14"></input></td>
+			<td>Laptop Computer</td>
+		</tr>
+		<tr>
+			<td><input type="number" class="input" id="userInput15"></input></td>
+			<td>Desktop Computer</td>
+		</tr>
+		<tr>
+			<td><input type="number" class="input" id="userInput15"></input></td>
+			<td>Heater</td>
+		</tr>
 	</table>
 
 	<button id="submitter">Calculate</button>
 	<br>
 	<div id="output"><p>thing</p></div>
 	<a href="https://www.canstarblue.com.au/energy/electricity/real-cost-lighting-home/">source1</a>
+	<a href="https://www.saveonenergy.com/energy-consumption/">source2</a>
 	<script type="text/javascript">
 		
 		var clicked = false;
@@ -157,32 +210,57 @@
 				var b = document.getElementById("userInput1").value;
 				var c = document.getElementById("userInput2").value;
 				var d = document.getElementById("userInput3").value;
+				var e = document.getElementById("userInput4").value;
+				var f = document.getElementById("userInput5").value;
+				var g = document.getElementById("userInput6").value;
+				var h = document.getElementById("userInput7").value;
+				var i = document.getElementById("userInput8").value;
+				var j = document.getElementById("userInput9").value;
+				var k = document.getElementById("userInput10").value;
+				var l = document.getElementById("userInput11").value;
+				var m = document.getElementById("userInput12").value;
+				var n = document.getElementById("userInput13").value;
+				var o = document.getElementById("userInput14").value;
+				var p = document.getElementById("userInput15").value;
 
-				var w = document.getElementById("wattInput").value;
-				var x = document.getElementById("wattInput1").value;
-				var y = document.getElementById("wattInput2").value;
-				var z = document.getElementById("wattInput3").value;
+				var input1 = document.getElementById("wattInput").value;
+				var input2 = document.getElementById("wattInput1").value;
+				var input3 = document.getElementById("wattInput2").value;
+				var input4 = document.getElementById("wattInput3").value;
 
-				var watts = numberCheck(40, 8, w, wattInput) * a;
-				var watts1 = numberCheck(100, 25, x, wattInput1) *b;
-				var watts2 = numberCheck(70, 20, y, wattInput2) * c;
-				var watts3 = numberCheck(25, 4, z, wattInput3) * d;
+				var watts = numberCheck(40, 8, input1, wattInput) * a;
+				var watts1 = numberCheck(100, 25, input2, wattInput1) *b;
+				var watts2 = numberCheck(70, 20, input3, wattInput2) * c;
+				var watts3 = numberCheck(25, 4, input4, wattInput3) * d;
+				var fridgeWatts = e * 150;
+				var tvWatts19 = f * 133;
+				var tvWatts53 = g * 170;
+				var microwaveWatts = h * 900; 
+				var gameWatts = i * 137;
+				var dishwasherWatts = j * 1800;
+				var washerWatts = k * 425;
+				var dryerWatts = l * 3400;
+				var airconWatts = m * 3500;
+				var toasterWatts = n * 1100;
+				var laptopWatts = o * 50;
+				var desktopWatts = p * 120;
 
-				totalWatts = watts + watts1 + watts2 + watts3;
+				totalWatts = watts + watts1 + watts2 + watts3 + fridgeWatts + tvWatts19 + tvWatts53 + microwaveWatts + gameWatts + dishwasherWatts + washerWatts + dryerWatts + airconWatts + toasterWatts + laptopWatts + desktopWatts;
 
 				var output = document.getElementById("output");
-				output.innerHTML = totalWatts;
+				output.innerHTML = totalWatts + "watts per hour";
 			}
 		}, 100)
 
 		//Function to check that number is within range
-		function numberCheck(topNum, bottomNum, inputCheck, red) {
+		function numberCheck(topNum, bottomNum, inputCheck, userInputCheck, red) {
 			if (inputCheck == 0) {
 				//set text field to red and output error message
-				return null;
+				console.log("boop");
 			}
 			else if (inputCheck >= topNum || inputCheck <= bottomNum) {
 				//set text field to red and output error message
+				console.log("boop2");
 			}
 			else {
 				return Number(inputCheck);
