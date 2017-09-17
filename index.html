@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<title>Sustainable Energy</title>
 	<style>
 		body {
@@ -72,7 +75,7 @@
 			width: 200px;
 		}
 		.input {
-			width: 90%
+			width: 100%
 		}
 		#output {
 			border-left: 6px solid #1EFF00;
@@ -90,17 +93,14 @@
 	</style>
 </head>
 	<body>
-
-	<navbar>
 	<div class="navbar">
 		<ul>
-			<li><a class="active" href="">Energy Calculator</a></li>
-			<li><a class="side" style="float:right;" href="">Info</a></li>
+			<li><a class="active" href="#home"><span class="glyphicon glyphicon-home"></span></a></li>
+			<li><a class="side" style="float:right;" href="#calc">Calculator</a></li>
 		</ul>
 	</div>
-	</navbar>
 
-	<div class="header"><br><br><br><br><br><br><h1>ENERGY USE CALCULATOR</h1><br><br><br><br><br><br>
+	<div class="header" id="home"><br><br><br><br><br><br><h1>ENERGY USE CALCULATOR</h1><br><br><br><br><br><br>
 	</div>
 
 	<div class="header2">
@@ -113,7 +113,7 @@
 
 	<h2>Energy Use Calculator</h2>
 
-	<table style="width: 100%">
+	<table style="width: 100%" id="calc">
 		<tr class="calculatorClass">
 			<th style="width: 5%">Number</th>
 			<th>Device</th>
