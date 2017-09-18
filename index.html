@@ -82,6 +82,16 @@
 			background-color: #333;
 			color: white;
 		}
+		#costOutput {
+			border-left: 6px solid #1EFF00;
+			background-color: #333;
+			color: white;
+		}
+		#output2 {
+			border-left: 6px solid #1EFF00;
+			background-color: #333;
+			color: white;
+		}
 		.calculatorClass {
 			background-color: #333;
 			color: white;
@@ -95,13 +105,13 @@
 	<body>
 	<div class="navbar">
 		<ul>
-			<li><a class="active" href="#home"><span class="glyphicon glyphicon-home"></span></a></li>
-			<li><a class="side" href="#calc">Calculator</a></li>
-			<li style="float: right;"><a class="side" href="about/index.html">About</a></li>
+			<li><a class="active" href="index.html"><span class="glyphicon glyphicon-home"></span></a></li>
+			<li><a class="side" href="#calc">Energy Use Calculator</a></li>
+			<li><a class="side" href="#scalc">Renewable Energy Calculator</a></li>
 		</ul>
 	</div>
 
-	<div class="header" id="home"><br><br><br><br><br><br><h1>ENERGY USE CALCULATOR</h1><br><br><br><br><br><br>
+	<div class="header" id="home"><br><br><br><br><br><br><h1>ENERGY CALCULATOR</h1><br><br><br><br><br><br>
 	</div>
 
 	<div class="header2">
@@ -116,7 +126,7 @@
 
 	<table style="width: 100%">
 		<tr class="calculatorClass">
-			<th style="width: 5%">Number</th>
+			<th style="width: 6%">Number</th>
 			<th>Device</th>
 			<th>Usage (watts/hour)</th>
 		</tr>
@@ -143,75 +153,85 @@
 		<tr>
 			<td><input type="number" class="input" id="userInput4"></input></td>
 			<td>Fridge</td>
-			<td>150 watts</td>
+			<td>780 watts per hour</td>
 		</tr>
 		<tr>
 			<td><input type="number" class="input" id="userInput5"></input></td>
 			<td>Television 19"-36"</td>
-			<td>133 watts</td>
+			<td>133 watts per hour</td>
 		</tr>
 		<tr>
 			<td><input type="number" class="input" id="userInput6"></input></td>
 			<td>Television 53"-61"</td>
-			<td>170 watts</td>
+			<td>170 watts per hour</td>
 		</tr>
 		<tr>
 			<td><input type="number" class="input" id="userInput7"></input></td>
 			<td>Microwave</td>
-			<td>900 watts</td>
+			<td>900 watts per hour</td>
 		</tr>
 		<tr>
 			<td><input type="number" class="input" id="userInput8"></input></td>
 			<td>Game Console</td>
-			<td>137 watts</td>
+			<td>137 watts per hour</td>
 		</tr>
 		<tr>
 			<td><input type="number" class="input" id="userInput9"></input></td>
 			<td>Dishwasher</td>
-			<td>1800 watts</td>
+			<td>1800 watts per hour</td>
 		</tr>
 		<tr>
 			<td><input type="number" class="input" id="userInput10"></input></td>
 			<td>Clothes Washer</td>
-			<td>425 watts</td>
+			<td>425 watts per hour</td>
 		</tr>
 		<tr>
 			<td><input type="number" class="input" id="userInput11"></input></td>
 			<td>Clothes Dryer</td>
-			<td>3400 watts</td>
+			<td>3400 watts per hour</td>
 		</tr>
 		<tr>
 			<td><input type="number" class="input" id="userInput12"></input></td>
 			<td>Air Conditioner</td>
-			<td>3500 watts</td>
+			<td>3500 watts per hour</td>
 		</tr>
 		<tr>
 			<td><input type="number" class="input" id="userInput13"></input></td>
 			<td>Toaster</td>
-			<td>1100 watts</td>
+			<td>1100 watts per hour</td>
 		</tr>
 		<tr>
 			<td><input type="number" class="input" id="userInput14"></input></td>
 			<td>Laptop Computer</td>
-			<td>50 watts</td>
+			<td>50 watts per hour</td>
 		</tr>
 		<tr>
 			<td><input type="number" class="input" id="userInput15"></input></td>
 			<td>Desktop Computer</td>
-			<td>120 watts</td>
+			<td>120 watts per hour</td>
 		</tr>
 		<tr>
 			<td><input type="number" class="input" id="userInput16"></input></td>
 			<td>Heater</td>
-			<td>5000 watts</td>
+			<td>5000 watts per hour</td>
 		</tr>
 	</table>
 	Electricity cost per kWh: <input type="number" style="width: 20%" class="input" id="costInput"></input><br>
 	<button id="submitter">Calculate</button>
 	<br>
 	<br>
-	<div style="font-size: 36px;" id="output">Output is here</div>
-	<br>
+	<div style="font-size: 34px;" id="output">Output is here</div>
+	<div id="costOutput">Cost output here</div>
+	<h2 id="scalc">Renewable Energy Calculator</h2>
+	<table style="width: 100%">
+		<tr class="calculatorClass">
+			<th style="width: 6%">Number</th>
+			<th>Device</th>
+			<th>Usage (watts/hour)</th>
+		</tr>
+		
+	</table>
+	<div style="font-size: 34px;" id="output2">Output is here</div>
 	<a href="https://www.canstarblue.com.au/energy/electricity/real-cost-lighting-home/">source1</a>
 	<a href="https://www.saveonenergy.com/energy-consumption/">source2</a>
 	<script type="text/javascript">
@@ -221,8 +241,8 @@
 		var bottomNum;
 		var inputCheck;
 		var red;
-		var totalWatts;
 		var outputField;
+		var x;
 
 		document.getElementById("submitter").addEventListener("click", function() {
 			clicked = true;
@@ -231,36 +251,36 @@
 			if (clicked) {
 				clicked = false;
 
-				var costInputVar = document.getElementById("costInput");
+				var costInputVar = Number(document.getElementById("costInput").value);
 
-				var a = document.getElementById("userInput").value;
-				var b = document.getElementById("userInput1").value;
-				var c = document.getElementById("userInput2").value;
-				var d = document.getElementById("userInput3").value;
-				var e = document.getElementById("userInput4").value;
-				var f = document.getElementById("userInput5").value;
-				var g = document.getElementById("userInput6").value;
-				var h = document.getElementById("userInput7").value;
-				var i = document.getElementById("userInput8").value;
-				var j = document.getElementById("userInput9").value;
-				var k = document.getElementById("userInput10").value;
-				var l = document.getElementById("userInput11").value;
-				var m = document.getElementById("userInput12").value;
-				var n = document.getElementById("userInput13").value;
-				var o = document.getElementById("userInput14").value;
-				var p = document.getElementById("userInput15").value;
-				var q = document.getElementById("userInput15").value;
+				var a = Number(document.getElementById("userInput").value) + 0;
+				var b = Number(document.getElementById("userInput1").value) + 0;
+				var c = Number(document.getElementById("userInput2").value) + 0;
+				var d = Number(document.getElementById("userInput3").value) + 0;
+				var e = Number(document.getElementById("userInput4").value) + 0;
+				var f = Number(document.getElementById("userInput5").value) + 0;
+				var g = Number(document.getElementById("userInput6").value) + 0;
+				var h = Number(document.getElementById("userInput7").value) + 0;
+				var i = Number(document.getElementById("userInput8").value) + 0;
+				var j = Number(document.getElementById("userInput9").value)  + 0;
+				var k = Number(document.getElementById("userInput10").value)  + 0;
+				var l = Number(document.getElementById("userInput11").value)  + 0;
+				var m = Number(document.getElementById("userInput12").value)  + 0;
+				var n = Number(document.getElementById("userInput13").value)  + 0;
+				var o = Number(document.getElementById("userInput14").value)  + 0;
+				var p = Number(document.getElementById("userInput15").value) + 0;
+				var q = Number(document.getElementById("userInput15").value) + 0;
 
-				var input1 = document.getElementById("wattInput").value;
-				var input2 = document.getElementById("wattInput1").value;
-				var input3 = document.getElementById("wattInput2").value;
-				var input4 = document.getElementById("wattInput3").value;
+				var input1 = Number(document.getElementById("wattInput").value) + 0;
+				var input2 = Number(document.getElementById("wattInput1").value)  + 0;
+				var input3 = Number(document.getElementById("wattInput2").value)  + 0;
+				var input4 = Number(document.getElementById("wattInput3").value) + 0;
 
 				var watts = numberCheck(40, 8, input1, a) * a;
 				var watts1 = numberCheck(100, 25, input2, b) *b;
 				var watts2 = numberCheck(70, 20, input3, c) * c;
 				var watts3 = numberCheck(25, 4, input4, d) * d;
-				var fridgeWatts = e * 150;
+				var fridgeWatts = e * 780;
 				var tvWatts19 = f * 133;
 				var tvWatts53 = g * 170;
 				var microwaveWatts = h * 900; 
@@ -272,35 +292,47 @@
 				var toasterWatts = n * 1100;
 				var laptopWatts = o * 50;
 				var desktopWatts = p * 120;
-				var desktopWatts = q * 5000;
+				var heaterWatts = q * 5000;
 
-				totalWatts = (watts + watts1 + watts2 + watts3 + fridgeWatts + tvWatts19 + tvWatts53 + microwaveWatts + gameWatts + dishwasherWatts + washerWatts + dryerWatts + airconWatts + toasterWatts + laptopWatts + desktopWatts) * costInputVar;
+
+				console.log(isNaN(totalWatts));
+				var totalWatts = watts  + watts1 + watts2 + watts3 + fridgeWatts + tvWatts19 + tvWatts53 + microwaveWatts + gameWatts + dishwasherWatts + washerWatts + dryerWatts + airconWatts + toasterWatts + laptopWatts + desktopWatts + heaterWatts;
+				console.log(isNaN(totalWatts));
 
 				var output = document.getElementById("output");
-				if (totalWatts <= 0) {
+				if (Number(totalWatts) >= 0) {
 					outputField = totalWatts + " watts per hour";
+					console.log(isNaN(totalWatts));
 				}
 				else {
 					outputField = "Please input valid data";
+					console.log(isNaN(totalWatts));
 				}
 				console.log(totalWatts);
 				output.innerHTML = outputField;
+				var costOutputVar = document.getElementById("costOutput");
+				var y = totalWatts / 1000;
+				costOutput.innerHTML = "$" + costInputVar * y + " per hour<br>$" + costInputVar * y * 12 + " per 12 hour day<br>$" + costInputVar * y * 84 + " per week<br>$" + costInputVar * y * 360 + " per 30 day month<br>$" + costInputVar * y * 4320 + " per year";
 			}
 		}, 100)
 
 		//Function to check that number is within range
 		function numberCheck(topNum, bottomNum, inputCheck, userInputCheck, red) {
-			if (inputCheck == 0 && userInputCheck != 0) {
+			if (inputCheck == 0) {
 				//set text field to red and output error message
-				console.log("boop");
+				return 0;
 			}
 			else if (inputCheck >= topNum || inputCheck <= bottomNum) {
 				//set text field to red and output error message
-				console.log("boop2");
+				return NaN;
 			}
 			else {
+				console.log(inputCheck);
 				return Number(inputCheck);
 			}
+		}
+		function isNaN(x) {
+			return x != x;
 		}
 	</script>
 	</body>
