@@ -107,7 +107,6 @@
 		<ul>
 			<li><a class="active" href="index.html"><span class="glyphicon glyphicon-home"></span></a></li>
 			<li><a class="side" href="#calc">Energy Use Calculator</a></li>
-			<li><a class="side" href="#scalc">Renewable Energy Calculator</a></li>
 		</ul>
 	</div>
 
@@ -127,91 +126,109 @@
 	<table style="width: 100%">
 		<tr class="calculatorClass">
 			<th style="width: 6%">Number</th>
+			<th>Hours Used Per Day</th>
 			<th>Device</th>
 			<th>Usage (watts/hour)</th>
 		</tr>
 		<tr>
 			<td><input type="number" class="input" id="userInput"></input></td>
+			<td><input type="number" class="input" id="hourInput"></input></td>
 			<td>CFL Light Bulb</td>
 			<td><input type="number" class="input" id="wattInput" style="width: 10%"></input>(8-40 watts)</td>
 		</tr>
 		<tr>
-			<td><input type="number" class="input" id="userInput1"></input></td>
+			<td><input type="number" class="input" id="userInput1"></input></td>			
+			<td><input type="number" class="input" id="hourInput1"></input></td>
 			<td>Incandescent Light Bulb</td>
 			<td><input type="number" class="input" id="wattInput1" style="width: 10%"></input>(25-100 watts)</td>
 		</tr>
 		<tr>
 			<td><input type="number" class="input" id="userInput2"></input></td>
+			<td><input type="number" class="input" id="hourInput2"></input></td>
 			<td>Halogen Light Bulb</td>
 			<td><input type="number" class="input" id="wattInput2" style="width: 10%"></input>(20-70 watts)</td>
 		</tr>
 		<tr>
 			<td><input type="number" class="input" id="userInput3"></input></td>
+			<td><input type="number" class="input" id="hourInput3"></input></td>
 			<td>LED Light Bulb</td>
 			<td><input type="number" class="input" id="wattInput3" style="width: 10%"></input>(4-25 watts)</td>
 		</tr>
 		<tr>
 			<td><input type="number" class="input" id="userInput4"></input></td>
+			<td><input type="number" class="input" id="hourInput4"></input></td>
 			<td>Fridge</td>
 			<td>780 watts per hour</td>
 		</tr>
 		<tr>
 			<td><input type="number" class="input" id="userInput5"></input></td>
+			<td><input type="number" class="input" id="hourInput5"></input></td>
 			<td>Television 19"-36"</td>
 			<td>133 watts per hour</td>
 		</tr>
 		<tr>
 			<td><input type="number" class="input" id="userInput6"></input></td>
+			<td><input type="number" class="input" id="hourInput6"></input></td>
 			<td>Television 53"-61"</td>
 			<td>170 watts per hour</td>
 		</tr>
 		<tr>
 			<td><input type="number" class="input" id="userInput7"></input></td>
+			<td><input type="number" class="input" id="hourInput7"></input></td>
 			<td>Microwave</td>
 			<td>900 watts per hour</td>
 		</tr>
 		<tr>
 			<td><input type="number" class="input" id="userInput8"></input></td>
+			<td><input type="number" class="input" id="hourInput8"></input></td>
 			<td>Game Console</td>
 			<td>137 watts per hour</td>
 		</tr>
 		<tr>
 			<td><input type="number" class="input" id="userInput9"></input></td>
+			<td><input type="number" class="input" id="hourInput9"></input></td>
 			<td>Dishwasher</td>
 			<td>1800 watts per hour</td>
 		</tr>
 		<tr>
 			<td><input type="number" class="input" id="userInput10"></input></td>
+			<td><input type="number" class="input" id="hourInput10"></input></td>
 			<td>Clothes Washer</td>
 			<td>425 watts per hour</td>
 		</tr>
 		<tr>
 			<td><input type="number" class="input" id="userInput11"></input></td>
+			<td><input type="number" class="input" id="hourInput11"></input></td>
 			<td>Clothes Dryer</td>
 			<td>3400 watts per hour</td>
 		</tr>
 		<tr>
 			<td><input type="number" class="input" id="userInput12"></input></td>
+			<td><input type="number" class="input" id="hourInput12"></input></td>
 			<td>Air Conditioner</td>
 			<td>3500 watts per hour</td>
 		</tr>
 		<tr>
 			<td><input type="number" class="input" id="userInput13"></input></td>
+			<td><input type="number" class="input" id="hourInput13"></input></td>
 			<td>Toaster</td>
 			<td>1100 watts per hour</td>
 		</tr>
 		<tr>
 			<td><input type="number" class="input" id="userInput14"></input></td>
+			<td><input type="number" class="input" id="hourInput14"></input></td>
 			<td>Laptop Computer</td>
 			<td>50 watts per hour</td>
 		</tr>
 		<tr>
 			<td><input type="number" class="input" id="userInput15"></input></td>
+			<td><input type="number" class="input" id="hourInput15"></input></td>
 			<td>Desktop Computer</td>
 			<td>120 watts per hour</td>
 		</tr>
 		<tr>
 			<td><input type="number" class="input" id="userInput16"></input></td>
+			<td><input type="number" class="input" id="hourInput16"></input></td>
 			<td>Heater</td>
 			<td>5000 watts per hour</td>
 		</tr>
@@ -222,16 +239,6 @@
 	<br>
 	<div style="font-size: 34px;" id="output">Output is here</div>
 	<div id="costOutput">Cost output here</div>
-	<h2 id="scalc">Renewable Energy Calculator</h2>
-	<table style="width: 100%">
-		<tr class="calculatorClass">
-			<th style="width: 6%">Number</th>
-			<th>Device</th>
-			<th>Usage (watts/hour)</th>
-		</tr>
-		
-	</table>
-	<div style="font-size: 34px;" id="output2">Output is here</div>
 	<a href="https://www.canstarblue.com.au/energy/electricity/real-cost-lighting-home/">source1</a>
 	<a href="https://www.saveonenergy.com/energy-consumption/">source2</a>
 	<script type="text/javascript">
@@ -269,7 +276,28 @@
 				var n = Number(document.getElementById("userInput13").value)  + 0;
 				var o = Number(document.getElementById("userInput14").value)  + 0;
 				var p = Number(document.getElementById("userInput15").value) + 0;
-				var q = Number(document.getElementById("userInput15").value) + 0;
+				var q = Number(document.getElementById("userInput16").value) + 0;
+
+				var hours = Number(document.getElementById("hourInput").value) + 0;
+				var hours2 = Number(document.getElementById("hourInput1").value) + 0;
+				var hours3 = Number(document.getElementById("hourInput2").value) + 0;
+				var hours4 = Number(document.getElementById("hourInput3").value) + 0;
+				var hours5 = Number(document.getElementById("hourInput4").value) + 0;
+				var hours6 = Number(document.getElementById("hourInput5").value) + 0;
+				var hours7 = Number(document.getElementById("hourInput6").value) + 0;
+				var hours8 = Number(document.getElementById("hourInput7").value) + 0;
+				var hours9 = Number(document.getElementById("hourInput8").value) + 0;
+				var hours10 = Number(document.getElementById("hourInput9").value) + 0;
+				var hours11 = Number(document.getElementById("hourInput10").value) + 0;
+				var hours12 = Number(document.getElementById("hourInput11").value) + 0;
+				var hours13 = Number(document.getElementById("hourInput12").value) + 0;
+				var hours14 = Number(document.getElementById("hourInput13").value) + 0;
+				var hours15 = Number(document.getElementById("hourInput14").value) + 0;
+				var hours16 = Number(document.getElementById("hourInput15").value) + 0;
+				var hours17 = Number(document.getElementById("hourInput16").value) + 0;
+				
+				console.log(hours);
+				console.log(hours17);
 
 				var input1 = Number(document.getElementById("wattInput").value) + 0;
 				var input2 = Number(document.getElementById("wattInput1").value)  + 0;
@@ -296,12 +324,12 @@
 
 
 				console.log(isNaN(totalWatts));
-				var totalWatts = watts  + watts1 + watts2 + watts3 + fridgeWatts + tvWatts19 + tvWatts53 + microwaveWatts + gameWatts + dishwasherWatts + washerWatts + dryerWatts + airconWatts + toasterWatts + laptopWatts + desktopWatts + heaterWatts;
+				var totalWatts = watts * hours + watts1 * hours2 + watts2 * hours3 + watts3 * hours4 + fridgeWatts * hours5 + tvWatts19 * hours6 + tvWatts53 * hours7 + microwaveWatts * hours8 + gameWatts * hours9 + dishwasherWatts * hours10 + washerWatts * hours11 + dryerWatts * hours12 + airconWatts * hours13 + toasterWatts * hours14 + laptopWatts * hours15 + desktopWatts * hours16 + heaterWatts * hours17;
 				console.log(isNaN(totalWatts));
 
 				var output = document.getElementById("output");
 				if (Number(totalWatts) >= 0) {
-					outputField = totalWatts + " watts per hour";
+					outputField = totalWatts + " watts per day";
 					console.log(isNaN(totalWatts));
 				}
 				else {
@@ -312,7 +340,7 @@
 				output.innerHTML = outputField;
 				var costOutputVar = document.getElementById("costOutput");
 				var y = totalWatts / 1000;
-				costOutput.innerHTML = "$" + costInputVar * y + " per hour<br>$" + costInputVar * y * 12 + " per 12 hour day<br>$" + costInputVar * y * 84 + " per week<br>$" + costInputVar * y * 360 + " per 30 day month<br>$" + costInputVar * y * 4320 + " per year";
+				costOutput.innerHTML = "$" + costInputVar * y + " per day<br>$" + costInputVar * y * 7 + " per week<br>$" + costInputVar * y * 30 + " per 30 day month<br>$" + costInputVar * y * 365 + " per year";
 			}
 		}, 100)
 
