@@ -121,12 +121,12 @@
 		<br><br><br><br><br><br><br><br><h1>Find out below</h1><br><br><br><br><br><br><br><br>
 	</div>
 
-	<h2 id="calc">Energy Use Calculator</h2>
+	<h2 id="calc" style="border-left: 6px solid #1EFF00; background-color: #333; color: white; font-size: 34px">Energy Use Calculator</h2>
 
 	<table style="width: 100%">
 		<tr class="calculatorClass">
 			<th style="width: 6%">Number</th>
-			<th>Hours Used Per Day</th>
+			<th style="width: 10%">Hours Used Per Day</th>
 			<th>Device</th>
 			<th>Usage (watts/hour)</th>
 		</tr>
@@ -232,6 +232,18 @@
 			<td>Heater</td>
 			<td>5000 watts per hour</td>
 		</tr>
+		<tr>
+			<td><input type="number" class="input" id="userInput17"></input></td>
+			<td><input type="number" class="input" id="hourInput17"></input></td>
+			<td>Oven</td>
+			<td>3000 watts per hour</td>
+		</tr>
+		<tr>
+			<td><input type="number" class="input" id="userInput18"></input></td>
+			<td><input type="number" class="input" id="hourInput18"></input></td>
+			<td>Fan 36"-58"</td>
+			<td>75 watts per hour</td>
+		</tr>
 	</table>
 	Electricity cost per kWh: <input type="number" style="width: 20%" class="input" id="costInput"></input><br>
 	<button id="submitter">Calculate</button>
@@ -239,8 +251,6 @@
 	<br>
 	<div style="font-size: 34px;" id="output">Output is here</div>
 	<div id="costOutput">Cost output here</div>
-	<a href="https://www.canstarblue.com.au/energy/electricity/real-cost-lighting-home/">source1</a>
-	<a href="https://www.saveonenergy.com/energy-consumption/">source2</a>
 	<script type="text/javascript">
 		
 		var clicked = false;
@@ -251,6 +261,8 @@
 		var outputField;
 		var x;
 		var checker;
+		var checker1;
+		var boolean;
 
 		document.getElementById("submitter").addEventListener("click", function() {
 			clicked = true;
@@ -259,25 +271,27 @@
 			if (clicked) {
 				clicked = false;
 
-				var costInputVar = Number(document.getElementById("costInput").value);
+				var costInputVar = aboveZero(Number(document.getElementById("costInput").value));
 
-				var a = Number(document.getElementById("userInput").value) + 0;
-				var b = Number(document.getElementById("userInput1").value) + 0;
-				var c = Number(document.getElementById("userInput2").value) + 0;
-				var d = Number(document.getElementById("userInput3").value) + 0;
-				var e = Number(document.getElementById("userInput4").value) + 0;
-				var f = Number(document.getElementById("userInput5").value) + 0;
-				var g = Number(document.getElementById("userInput6").value) + 0;
-				var h = Number(document.getElementById("userInput7").value) + 0;
-				var i = Number(document.getElementById("userInput8").value) + 0;
-				var j = Number(document.getElementById("userInput9").value)  + 0;
-				var k = Number(document.getElementById("userInput10").value)  + 0;
-				var l = Number(document.getElementById("userInput11").value)  + 0;
-				var m = Number(document.getElementById("userInput12").value)  + 0;
-				var n = Number(document.getElementById("userInput13").value)  + 0;
-				var o = Number(document.getElementById("userInput14").value)  + 0;
-				var p = Number(document.getElementById("userInput15").value) + 0;
-				var q = Number(document.getElementById("userInput16").value) + 0;
+				var a = aboveZero(Number(document.getElementById("userInput").value)) + 0;
+				var b = aboveZero(Number(document.getElementById("userInput1").value)) + 0;
+				var c = aboveZero(Number(document.getElementById("userInput2").value)) + 0;
+				var d = aboveZero(Number(document.getElementById("userInput3").value)) + 0;
+				var e = aboveZero(Number(document.getElementById("userInput4").value)) + 0;
+				var f = aboveZero(Number(document.getElementById("userInput5").value)) + 0;
+				var g = aboveZero(Number(document.getElementById("userInput6").value)) + 0;
+				var h = aboveZero(Number(document.getElementById("userInput7").value)) + 0;
+				var i = aboveZero(Number(document.getElementById("userInput8").value)) + 0;
+				var j = aboveZero(Number(document.getElementById("userInput9").value))  + 0;
+				var k = aboveZero(Number(document.getElementById("userInput10").value))  + 0;
+				var l = aboveZero(Number(document.getElementById("userInput11").value))  + 0;
+				var m = aboveZero(Number(document.getElementById("userInput12").value))  + 0;
+				var n = aboveZero(Number(document.getElementById("userInput13").value))  + 0;
+				var o = aboveZero(Number(document.getElementById("userInput14").value))  + 0;
+				var p = aboveZero(Number(document.getElementById("userInput15").value)) + 0;
+				var q = aboveZero(Number(document.getElementById("userInput16").value)) + 0;
+				var r = aboveZero(Number(document.getElementById("userInput17").value)) + 0;
+				var s = aboveZero(Number(document.getElementById("userInput18").value)) + 0;
 
 				var hours = dayCheck(Number(document.getElementById("hourInput").value)) + 0;
 				var hours2 = dayCheck(Number(document.getElementById("hourInput1").value)) + 0;
@@ -296,10 +310,9 @@
 				var hours15 = dayCheck(Number(document.getElementById("hourInput14").value)) + 0;
 				var hours16 = dayCheck(Number(document.getElementById("hourInput15").value)) + 0;
 				var hours17 = dayCheck(Number(document.getElementById("hourInput16").value)) + 0;
+				var hours18 = dayCheck(Number(document.getElementById("hourInput17").value)) + 0;
+				var hours19 = dayCheck(Number(document.getElementById("hourInput18").value)) + 0;
 				
-				console.log(hours);
-				console.log(hours17);
-
 				var input1 = Number(document.getElementById("wattInput").value) + 0;
 				var input2 = Number(document.getElementById("wattInput1").value)  + 0;
 				var input3 = Number(document.getElementById("wattInput2").value)  + 0;
@@ -322,26 +335,25 @@
 				var laptopWatts = o * 50;
 				var desktopWatts = p * 120;
 				var heaterWatts = q * 5000;
+				var ovenWatts = r * 3000;
+				var fanWatts = s * 75;
 
-
-				console.log(isNaN(totalWatts));
-				var totalWatts = watts * hours + watts1 * hours2 + watts2 * hours3 + watts3 * hours4 + fridgeWatts * hours5 + tvWatts19 * hours6 + tvWatts53 * hours7 + microwaveWatts * hours8 + gameWatts * hours9 + dishwasherWatts * hours10 + washerWatts * hours11 + dryerWatts * hours12 + airconWatts * hours13 + toasterWatts * hours14 + laptopWatts * hours15 + desktopWatts * hours16 + heaterWatts * hours17;
-				console.log(isNaN(totalWatts));
-
+				var totalWatts = watts * hours + watts1 * hours2 + watts2 * hours3 + watts3 * hours4 + fridgeWatts * hours5 + tvWatts19 * hours6 + tvWatts53 * hours7 + microwaveWatts * hours8 + gameWatts * hours9 + dishwasherWatts * hours10 + washerWatts * hours11 + dryerWatts * hours12 + airconWatts * hours13 + toasterWatts * hours14 + laptopWatts * hours15 + desktopWatts * hours16 + heaterWatts * hours17 + ovenWatts * hours18 + fanWatts * hours19;
+				
 				var output = document.getElementById("output");
 				if (Number(totalWatts) > 0) {
 					outputField = totalWatts + " watts per day";
-					console.log(isNaN(totalWatts));
+					boolean = true;
 				}
 				else {
 					outputField = "Please input valid data";
-					console.log(isNaN(totalWatts));
+					boolean = false;
 				}
-				console.log(totalWatts);
+
 				output.innerHTML = outputField;
 				var costOutputVar = document.getElementById("costOutput");
 				var y = totalWatts / 1000;
-				if (costInputVar > 0) {
+				if (costInputVar > 0 && boolean) {
 					costOutput.innerHTML = "$" + costInputVar * y + " per day<br>$" + costInputVar * y * 7 + " per week<br>$" + costInputVar * y * 30 + " per 30 day month<br>$" + costInputVar * y * 365 + " per year";
 				}
 				else {
@@ -361,7 +373,6 @@
 				return NaN;
 			}
 			else {
-				console.log(inputCheck);
 				return Number(inputCheck);
 			}
 		}
@@ -370,13 +381,19 @@
 		}
 		function dayCheck(checker) {
 				if (checker >= 0 && checker <= 24) {
-					console.log("run");
 					return checker;
 				}
 				else {
-					console.log("run2")
 					return NaN;
 				}
+		}
+		function aboveZero(checker1) {
+			if (checker1 >= 0) {
+				return checker1
+			}
+			else {
+				return NaN;
+			}
 		}
 	</script>
 	</body>
