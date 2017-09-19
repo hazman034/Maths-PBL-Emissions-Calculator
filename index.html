@@ -250,6 +250,7 @@
 		var red;
 		var outputField;
 		var x;
+		var checker;
 
 		document.getElementById("submitter").addEventListener("click", function() {
 			clicked = true;
@@ -278,23 +279,23 @@
 				var p = Number(document.getElementById("userInput15").value) + 0;
 				var q = Number(document.getElementById("userInput16").value) + 0;
 
-				var hours = Number(document.getElementById("hourInput").value) + 0;
-				var hours2 = Number(document.getElementById("hourInput1").value) + 0;
-				var hours3 = Number(document.getElementById("hourInput2").value) + 0;
-				var hours4 = Number(document.getElementById("hourInput3").value) + 0;
-				var hours5 = Number(document.getElementById("hourInput4").value) + 0;
-				var hours6 = Number(document.getElementById("hourInput5").value) + 0;
-				var hours7 = Number(document.getElementById("hourInput6").value) + 0;
-				var hours8 = Number(document.getElementById("hourInput7").value) + 0;
-				var hours9 = Number(document.getElementById("hourInput8").value) + 0;
-				var hours10 = Number(document.getElementById("hourInput9").value) + 0;
-				var hours11 = Number(document.getElementById("hourInput10").value) + 0;
-				var hours12 = Number(document.getElementById("hourInput11").value) + 0;
-				var hours13 = Number(document.getElementById("hourInput12").value) + 0;
-				var hours14 = Number(document.getElementById("hourInput13").value) + 0;
-				var hours15 = Number(document.getElementById("hourInput14").value) + 0;
-				var hours16 = Number(document.getElementById("hourInput15").value) + 0;
-				var hours17 = Number(document.getElementById("hourInput16").value) + 0;
+				var hours = dayCheck(Number(document.getElementById("hourInput").value)) + 0;
+				var hours2 = dayCheck(Number(document.getElementById("hourInput1").value)) + 0;
+				var hours3 = dayCheck(Number(document.getElementById("hourInput2").value)) + 0;
+				var hours4 = dayCheck(Number(document.getElementById("hourInput3").value)) + 0;
+				var hours5 = dayCheck(Number(document.getElementById("hourInput4").value)) + 0;
+				var hours6 = dayCheck(Number(document.getElementById("hourInput5").value)) + 0;
+				var hours7 = dayCheck(Number(document.getElementById("hourInput6").value)) + 0;
+				var hours8 = dayCheck(Number(document.getElementById("hourInput7").value)) + 0;
+				var hours9 = dayCheck(Number(document.getElementById("hourInput8").value)) + 0;
+				var hours10 = dayCheck(Number(document.getElementById("hourInput9").value)) + 0;
+				var hours11 = dayCheck(Number(document.getElementById("hourInput10").value)) + 0;
+				var hours12 = dayCheck(Number(document.getElementById("hourInput11").value)) + 0;
+				var hours13 = dayCheck(Number(document.getElementById("hourInput12").value)) + 0;
+				var hours14 = dayCheck(Number(document.getElementById("hourInput13").value)) + 0;
+				var hours15 = dayCheck(Number(document.getElementById("hourInput14").value)) + 0;
+				var hours16 = dayCheck(Number(document.getElementById("hourInput15").value)) + 0;
+				var hours17 = dayCheck(Number(document.getElementById("hourInput16").value)) + 0;
 				
 				console.log(hours);
 				console.log(hours17);
@@ -328,7 +329,7 @@
 				console.log(isNaN(totalWatts));
 
 				var output = document.getElementById("output");
-				if (Number(totalWatts) >= 0) {
+				if (Number(totalWatts) > 0) {
 					outputField = totalWatts + " watts per day";
 					console.log(isNaN(totalWatts));
 				}
@@ -340,7 +341,12 @@
 				output.innerHTML = outputField;
 				var costOutputVar = document.getElementById("costOutput");
 				var y = totalWatts / 1000;
-				costOutput.innerHTML = "$" + costInputVar * y + " per day<br>$" + costInputVar * y * 7 + " per week<br>$" + costInputVar * y * 30 + " per 30 day month<br>$" + costInputVar * y * 365 + " per year";
+				if (costInputVar > 0) {
+					costOutput.innerHTML = "$" + costInputVar * y + " per day<br>$" + costInputVar * y * 7 + " per week<br>$" + costInputVar * y * 30 + " per 30 day month<br>$" + costInputVar * y * 365 + " per year";
+				}
+				else {
+					costOutput.innerHTML = "Please input valid data";
+				}
 			}
 		}, 100)
 
@@ -350,7 +356,7 @@
 				//set text field to red and output error message
 				return 0;
 			}
-			else if (inputCheck >= topNum || inputCheck <= bottomNum) {
+			else if (inputCheck > topNum || inputCheck < bottomNum) {
 				//set text field to red and output error message
 				return NaN;
 			}
@@ -361,6 +367,16 @@
 		}
 		function isNaN(x) {
 			return x != x;
+		}
+		function dayCheck(checker) {
+				if (checker >= 0 && checker <= 24) {
+					console.log("run");
+					return checker;
+				}
+				else {
+					console.log("run2")
+					return NaN;
+				}
 		}
 	</script>
 	</body>
